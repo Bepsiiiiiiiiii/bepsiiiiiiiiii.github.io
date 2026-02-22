@@ -2,148 +2,248 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>💥💥 BLOW YOUR NANS TITS CLEAN OFF SHOP!!! 💥💥</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYNTCO. | Artisanal Detachments</title>
     <style>
+        /* Minimalist, Premium Base Styles */
         body {
-            background-color: #00FFFF;
-            background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png');
-            color: #FF00FF;
-            font-family: "Comic Sans MS", "Chalkboard SE", cursive;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
-            cursor: crosshair;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
         }
 
-        /* Essential 90s Animations */
-        @keyframes blinker { 50% { opacity: 0; } }
-        .blink { animation: blinker 0.2s linear infinite; color: red; font-size: 3em; font-weight: bold;}
-        
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        .spin { animation: spin 2s linear infinite; display: inline-block; }
-
-        @keyframes seizureBG {
-            0% { background-color: #00FFFF; }
-            33% { background-color: #FFFF00; }
-            66% { background-color: #FF00FF; }
-            100% { background-color: #00FF00; }
+        h1, h2, h3 {
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #111;
         }
 
-        h1 {
+        /* Elegant Header */
+        header {
+            background-color: #fff;
+            padding: 2rem;
             text-align: center;
-            font-size: 50px;
-            background-color: yellow;
-            border: 10px dashed red;
-            padding: 10px;
-            text-shadow: 4px 4px 0px #000;
+            border-bottom: 1px solid #eaeaea;
         }
 
-        .container {
-            border: 15px groove #00FF00;
-            background-color: #000080;
-            color: #FFFF00;
-            padding: 10px;
-            margin: 20px;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 0.9rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
+            padding: 5rem 2rem;
+            background-color: #f0f0f0;
         }
 
-        table {
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Premium Product Grid */
+        .collection {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #eaeaea;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-image-placeholder {
             width: 100%;
-            border-collapse: collapse;
-            border: 8px outset #FF00FF;
-            background-color: #FFFFFF;
-            color: #000000;
+            height: 250px;
+            background-color: #f9f9f9;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: #999;
+            font-style: italic;
         }
 
-        td {
-            border: 4px solid red;
-            padding: 20px;
-            text-align: center;
+        .product-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
         }
 
-        .buy-btn {
-            background-color: #00FF00;
-            color: red;
-            font-size: 24px;
-            font-weight: 900;
-            padding: 20px;
-            border: 10px ridge yellow;
+        .specs {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+            text-align: left;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .specs span {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: #111;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background-color: #111;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
-            text-decoration: blink;
-            animation: blinker 0.5s linear infinite;
+            transition: background 0.3s;
+            width: 100%;
         }
 
-        .buy-btn:hover {
-            background-color: red;
-            color: #00FF00;
-            transform: scale(1.5);
+        .btn:hover {
+            background-color: #444;
+        }
+
+        /* Manifesto / About Section */
+        .philosophy {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .philosophy h2 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #bbb;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #fff;
+            border-top: 1px solid #eaeaea;
+            font-size: 0.85rem;
+            color: #888;
         }
     </style>
 </head>
-<body onload="alert('WELCOME TO THE MADHOUSE!!! WARNING: EXTREME DISCOUNTS AHEAD!');">
+<body>
 
-    <div style="text-align:center; background: #000; color: #00ff00;">
-        🔊 MIDI MUSIC PLAYING: "Sandstorm_techno_remix.mid" 🔊
-    </div>
+    <header>
+        <h1>BYNTCO.</h1>
+        <p>Bespoke Detachments Since 2026</p>
+    </header>
 
-    <marquee scrollamount="30" direction="right" style="background: red; color: yellow; font-size: 40px; font-weight: bold;">
-        🚗🚗🚗 BUY OUR STUFF!!! IT WILL BLOW YOUR NAN'S TITS CLEAN OFF!!! 🚗🚗🚗
-    </marquee>
+    <section class="hero">
+        <h2>Elegance in the Aftermath.</h2>
+        <p>Discover our curated collection of pristine, cleanly detached matriarchal assets. Sourced with care through highly calibrated shaped charges, and preserved with the utmost dignity.</p>
+    </section>
 
-    <h1>
-        <span class="spin">☢️</span> 
-        WELCOME TO BLOWYOURNANSTITSCLEANOFF.SHOP 
-        <span class="spin">☢️</span>
-    </h1>
+    <section class="collection">
+        <div class="product-card">
+            <div class="product-image-placeholder">[ Visual Withheld for Elegance ]</div>
+            <h3>The 'Werther's Original' Pair</h3>
+            
+            <div class="specs">
+                <span><strong>Detachment Method:</strong> 42° Surgical C4 Yield</span>
+                <span><strong>Cardigan Integrity:</strong> 100% (Unscathed)</span>
+                <span><strong>Scent Profile:</strong> Butterscotch, Lavender</span>
+            </div>
 
-    <div style="text-align: center;">
-        <img src="https://media.giphy.com/media/l41YkFIiBxQdRlOhi/giphy.gif" alt="Dancing baby" height="150">
-        <span class="blink">CHEAP! CHEAP! CHEAP!</span>
-        <img src="https://media.giphy.com/media/l41YkFIiBxQdRlOhi/giphy.gif" alt="Dancing baby" height="150">
-    </div>
+            <p class="desc">A classic offering from a pristine bingo hall detachment. The shaped charge was executed flawlessly, leaving no frayed edges. A true collector's piece.</p>
+            <div class="price">£4,500.00</div>
+            <button class="btn">Acquire Piece</button>
+        </div>
 
-    <marquee scrollamount="50" direction="left" style="font-size: 50px;">
-        🔥🔥🔥 EVERYTHING MUST GO!!! 🔥🔥🔥 I AM CRAZY GARY AND I HAVE LOST MY MIND!!! 🔥🔥🔥
-    </marquee>
+        <div class="product-card">
+            <div class="product-image-placeholder">[ Visual Withheld for Elegance ]</div>
+            <h3>The 'Sunday Roast' Matriarch Left</h3>
+            
+            <div class="specs">
+                <span><strong>Detachment Method:</strong> Kinetic Vacuum Blast</span>
+                <span><strong>Cardigan Integrity:</strong> 98% (Slight gravy stain pre-dates blast)</span>
+                <span><strong>Scent Profile:</strong> Bisto, Yorkshire Pudding</span>
+            </div>
 
-    <div class="container">
-        <h2>👇👇 LOOK AT THESE DEALS 👇👇</h2>
-        <p>DO NOT TELL YOUR NAN ABOUT THIS SITE! SHE CANNOT HANDLE THE SAVINGS!</p>
+            <p class="desc">A rare asymmetrical offering. Detached cleanly over a dispute about potato crispness. Remarkable structural preservation. Right side currently unavailable.</p>
+            <div class="price">£2,100.00</div>
+            <button class="btn">Acquire Piece</button>
+        </div>
 
-        <table>
-            <tr>
-                <td>
-                    <h3>THE NAN-BLASTER 5000</h3>
-                    <img src="https://media.giphy.com/media/P1PemPNcUWCGs/giphy.gif" width="200" alt="Explosion">
-                    <p style="font-size: 20px; color: blue;"><strong>WAS £999 NOW ONLY £1.99!!</strong></p>
-                    <button class="buy-btn">CLICK HERE TO BUY NOW OR FOREVER LIVE IN SHAME</button>
-                </td>
-                <td style="background-color: yellow;">
-                    <h3 style="color: red;">☢️ MYSTERY BOX ☢️</h3>
-                    <img src="https://media.giphy.com/media/3o7TKsQ8gE8Tz1W5E4/giphy.gif" width="200" alt="Question Mark">
-                    <p style="font-size: 20px;"><strong>WE DON'T EVEN KNOW WHAT IT IS!!!</strong></p>
-                    <button class="buy-btn" style="background-color: blue; color: yellow;">GIMME GIMME GIMME</button>
-                </td>
-                <td>
-                    <h3>LIQUID HOT MAGMA</h3>
-                    <img src="https://media.giphy.com/media/xT0GqfvuVpNqEf3z2w/giphy.gif" width="200" alt="Fire">
-                    <p style="font-size: 20px; color: blue;"><strong>DO NOT DRINK THIS (UNLESS YOU WANT TO)</strong></p>
-                    <button class="buy-btn">PURCHASE THIS HAZARD</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <div class="product-card">
+            <div class="product-image-placeholder">[ Visual Withheld for Elegance ]</div>
+            <h3>The Platinum Jubilee Commemorative</h3>
+            
+            <div class="specs">
+                <span><strong>Detachment Method:</strong> Royal Artillery Salute (Modified)</span>
+                <span><strong>Cardigan Integrity:</strong> 100% (Tweed)</span>
+                <span><strong>Scent Profile:</strong> Earl Grey, Imperial Majesty</span>
+            </div>
 
-    <marquee behavior="alternate" scrollamount="20" style="background: black; color: #00FF00; font-size: 30px; padding: 20px;">
-        TRUST US WITH YOUR CREDIT CARD DETAILS! WE PROBABLY WON'T STEAL THEM!
-    </marquee>
+            <p class="desc">A vintage detachment preserved in a hermetically sealed vitrine. The absolute pinnacle of clean-off technology. Only for the most discerning connoisseur.</p>
+            <div class="price">£12,000.00</div>
+            <button class="btn">Acquire Piece</button>
+        </div>
+    </section>
 
-    <div style="text-align: center; margin: 50px;">
-        <img src="https://web.archive.org/web/20090829074043/http://geocities.com/Heartland/Valley/2647/undercon.gif" alt="Under Construction">
-        <br>
-        <p style="font-family: monospace; font-size: 10px; color: black;">
-            You are visitor number: <strong>00000004</strong><br>
-            Best viewed in Netscape Navigator 4.0
-        </p>
-    </div>
+    <section class="philosophy">
+        <h2>The Science of the Clean Blast</h2>
+        <p>At BYNTCO, we believe that collateral damage is the mark of an amateur. When a nan's tits are blown off, it should be an immaculate, surgical event. We utilize only the finest calibrated shaped charges, ensuring a perfect ring of localized detachment that completely preserves the structural integrity of her Marks & Spencer blouse. We don't just sell the aftermath; we sell perfection.</p>
+    </section>
+
+    <footer>
+        &copy; 2026 BYNTCO Fine Curations. All sales are final. Discretion assured.
+    </footer>
 
 </body>
 </html>
