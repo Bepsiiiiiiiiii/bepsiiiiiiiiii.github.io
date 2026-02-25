@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blast Simulator | BYNTCO.</title>
+
+    <!-- Open Graph / Discord / Social Embeds -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blast Simulator | BYNTCO.">
+    <meta property="og:description"
+        content="Experience the yield of a tactical kinetic separation. Try our proprietary Blast Simulator™. Warning: Highly Kinetic.">
+    <meta property="og:site_name" content="BYNTCO.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blast Simulator | BYNTCO.">
+    <meta name="twitter:description"
+        content="Experience the yield of a tactical kinetic separation. Try our proprietary Blast Simulator™. Warning: Highly Kinetic.">
+    <meta name="theme-color" content="#d4af37">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Blast overlay for interactive section -->
+    <div id="blast-overlay" class="blast-overlay">
+        <div class="blast-text">TITS DETACHED CLEANLY</div>
+        <div class="blast-ring"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">BYNTCO.</a>
+        <ul class="nav-links">
+            <li><a href="philosophy.html">The Philosophy</a></li>
+            <li><a href="collection.html">The Archives</a></li>
+            <li><a href="simulator.html">Simulator</a></li>
+        </ul>
+        <div class="nav-btn-container">
+            <a href="simulator.html" class="nav-btn">Book a Blast</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <h1>Experience The Yield</h1>
+        <p>Try our proprietary Blast Simulator&trade;. Warning: Highly Kinetic.</p>
+    </header>
+
+    <main class="main-content simulator-section" id="simulator">
+        <div class="simulator-container">
+
+            <div class="sim-controls-panel">
+                <div class="sim-control-group">
+                    <label for="yield-select">1. Explosive Yield</label>
+                    <select id="yield-select">
+                        <option value="standard">Surgical C4 (Standard)</option>
+                        <option value="tactical">Tactical Micro-Nuke (High Velocity)</option>
+                        <option value="thermobaric">Thermobaric Chain Reaction (Maximum Dispersal)</option>
+                    </select>
+                </div>
+
+                <div class="sim-control-group">
+                    <label for="cardigan-select">2. Cardigan Resistance</label>
+                    <select id="cardigan-select">
+                        <option value="cotton">Standard Cotton Blend (Easy)</option>
+                        <option value="acrylic">M&S Acrylic (Medium)</option>
+                        <option value="cashmere">Heavy Cashmere (Hard)</option>
+                        <option value="tweed">Armoured Tweed (Extreme)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sim-readout-panel" id="sim-readout">
+                Telemetry: Systems nominal. Ready for next kinetic separation.
+            </div>
+
+            <div class="sim-stage">
+                <div class="nan-figure" id="nan-figure">
+                    <div class="head"></div>
+                    <div class="torso">
+                        <div class="tit left-tit" id="tit-l"></div>
+                        <div class="tit right-tit" id="tit-r"></div>
+                    </div>
+                    <div class="arm left-arm"></div>
+                    <div class="arm right-arm"></div>
+                    <div class="legs"></div>
+                </div>
+            </div>
+
+            <div class="controls text-center">
+                <div class="blast-btn-wrapper">
+                    <button class="btn blast-btn" id="blast-btn">
+                        <span class="btn-front">INITIATE CLEAN BLAST</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">BYNTCO.</div>
+        <p>&copy; 2026 BYNTCO Fine Curations & Kinetic Detachments. All sales are final.</p>
+        <p class="disclaimer">No actual nans were harmed. Cardigans strictly monitored for safety.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
