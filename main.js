@@ -1,16 +1,56 @@
+// Scroll utility
+function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigation highlighting based on current page
+
+    // Global Nav Highlights
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
-            link.style.color = 'var(--accent)';
-            link.style.borderBottom = '1px solid var(--accent)';
-            link.style.paddingBottom = '3px';
+            link.classList.add('active');
         }
     });
 
-    // Simulator Logic
+    // Shrink Nav on Scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Reveal Animations using IntersectionObserver
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    // Apply reveal class to major block elements before they stream in
+    document.querySelectorAll('.product-card, .test-card, .lore-block, .philosophy-container, .sim-controls-panel, .sim-stage, .form-container, .about-text, .about-img')
+        .forEach((el, index) => {
+            el.classList.add('reveal');
+            // Add a slight stagger for grid items
+            if (el.classList.contains('product-card') || el.classList.contains('test-card')) {
+                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            }
+            revealObserver.observe(el);
+        });
+
+
+    // Simulator Royal Command Logic
     const blastBtn = document.getElementById('blast-btn');
     if (blastBtn) {
         const titL = document.getElementById('tit-l');
@@ -37,20 +77,38 @@ document.addEventListener('DOMContentLoaded', () => {
             if (yieldVal === 'thermobaric') shakeClass = 'shake-thermo';
 
             document.body.classList.add(shakeClass);
-            blastBtn.textContent = 'CALIBRATING YIELD...';
-            if (readoutText) readoutText.textContent = "Telemetry: Arming shaped charge... Target acquiring...";
+            blastBtn.innerHTML = '<span class="btn-front">CALIBRATING TARGET LOCUS...</span>';
+            blastBtn.disabled = true;
 
+            // Countdown text sequence
+            if (readoutText) {
+                let cnt = 3;
+                readoutText.innerHTML = `> TELEMETRY LINKED. ARMING PAYLOAD. (${yieldVal.toUpperCase()})<br>> T-${cnt}`;
+                const cdInterval = setInterval(() => {
+                    cnt--;
+                    if (cnt > 0) {
+                        readoutText.innerHTML = `> TELEMETRY LINKED. ARMING PAYLOAD. (${yieldVal.toUpperCase()})<br>> T-${cnt}`;
+                    } else {
+                        clearInterval(cdInterval);
+                    }
+                }, 800);
+            }
+
+            // Fire Sequence
             setTimeout(() => {
-                // THE BLAST
                 document.body.classList.remove(shakeClass);
 
-                // Activate the overlay
+                // Overlay Activate
                 overlay.classList.add('blast-active');
 
-                // Adjust blast color based on yield
+                // Color tweaks based on yield
                 if (yieldVal === 'thermobaric') {
-                    blastRing.style.borderColor = '#ff5500';
-                    blastText.style.color = '#ffaa00';
+                    blastRing.style.borderColor = '#ffaa00';
+                    blastRing.style.borderWidth = '150px';
+                    blastText.style.color = '#ff6600';
+                } else if (yieldVal === 'tactical') {
+                    blastRing.style.borderColor = '#00ffff';
+                    blastText.style.color = '#0066cc';
                 } else {
                     blastRing.style.borderColor = 'var(--accent)';
                     blastText.style.color = '#000';
@@ -59,58 +117,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 blastRing.classList.add('blast-anim');
                 blastText.classList.add('text-anim');
 
-                // Blow off the tits
+                // Bye bye
                 titL.classList.add('blown-away-lf');
                 titR.classList.add('blown-away-rt');
 
                 if (readoutText) {
-                    let cardiDamage = '0%';
-                    if (yieldVal === 'thermobaric' && cardiVal === 'acrylic') cardiDamage = '12% Fraying (Acceptable Losses)';
-                    else if (yieldVal === 'tactical' && cardiVal === 'cashmere') cardiDamage = '0.01% Singe (Highly Commendable)';
-                    readoutText.innerHTML = `Telemetry: <span style="color:red">BLAST COMPLETE</span>. Cardigan Integrity Damage: ${cardiDamage}. Decoupling absolute.`;
+                    let cardiDamage = '0.00% FRAYING';
+                    if (yieldVal === 'thermobaric' && cardiVal === 'acrylic') cardiDamage = '12% SCORCHING (ACCEPTABLE LOSS)';
+                    else if (yieldVal === 'tactical' && cardiVal === 'cashmere') cardiDamage = '0.01% VAPORIZATION (HIGHLY COMMENDABLE)';
+
+                    readoutText.innerHTML = `> <span style="color:#ff3333; font-weight:bold;">KINETIC EVENT COMPLETE</span>.<br>> CARDIGAN INTEGRITY: ${cardiDamage}<br>> DECOUPLING: ABSOLUTE.`;
                 }
 
-                // Reset after the elegance of the aftermath is absorbed
+                // Reset Protocol
                 setTimeout(() => {
                     overlay.classList.remove('blast-active');
                     blastRing.classList.remove('blast-anim');
                     blastText.classList.remove('text-anim');
 
-                    blastBtn.textContent = 'RESTOCKING TACTICAL ASSETS...';
+                    // Reset styling inline
+                    blastRing.style.borderColor = '';
+                    blastText.style.color = '';
+
+                    blastBtn.innerHTML = '<span class="btn-front">RESTOCKING TACTICAL ASSETS...</span>';
 
                     setTimeout(() => {
                         titL.classList.remove('blown-away-lf');
                         titR.classList.remove('blown-away-rt');
 
-                        // reset color
-                        blastRing.style.borderColor = 'var(--accent)';
-                        blastText.style.color = '#000';
-
-                        blastBtn.innerHTML = '<span class="btn-front">INITIATE CLEAN BLAST</span>';
-                        if (readoutText) readoutText.textContent = "Telemetry: Systems nominal. Ready for next kinetic separation.";
+                        blastBtn.disabled = false;
+                        blastBtn.innerHTML = '<span class="btn-front">INITIATE KINETIC YIELD</span>';
+                        if (readoutText) readoutText.innerHTML = "> SYSTEMS NOMINAL. READY FOR NEXT SEPARATION.";
                         isBlasting = false;
-                    }, 2000);
+                    }, 2500);
 
-                }, 2500);
+                }, 3000); // Overlay duration
 
-            }, 1800);
+            }, 2600); // Countdown duration
         });
     }
 
-    // Intersection observer for fading elements in
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.product-card, .test-card, .philosophy-block, .feature-row').forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        observer.observe(el);
-    });
 });

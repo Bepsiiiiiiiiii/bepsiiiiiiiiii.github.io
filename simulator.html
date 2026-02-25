@@ -35,12 +35,13 @@
     <nav>
         <a href="index.html" class="logo">BYNTCO.</a>
         <ul class="nav-links">
-            <li><a href="philosophy.html">The Philosophy</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="philosophy.html">The Protocol</a></li>
             <li><a href="collection.html">The Archives</a></li>
-            <li><a href="simulator.html">Simulator</a></li>
+            <li><a href="simulator.html" class="active">Simulator</a></li>
         </ul>
         <div class="nav-btn-container">
-            <a href="simulator.html" class="nav-btn">Book a Blast</a>
+            <a href="book.html" class="nav-btn">Book a Blast</a>
         </div>
     </nav>
 
@@ -67,9 +68,9 @@
                     <label for="cardigan-select">2. Cardigan Resistance</label>
                     <select id="cardigan-select">
                         <option value="cotton">Standard Cotton Blend (Easy)</option>
-                        <option value="acrylic">M&S Acrylic (Medium)</option>
+                        <option value="acrylic">Per Una Acrylic Twinset (Medium)</option>
                         <option value="cashmere">Heavy Cashmere (Hard)</option>
-                        <option value="tweed">Armoured Tweed (Extreme)</option>
+                        <option value="tweed">Armoured Country Tweed (Extreme)</option>
                     </select>
                 </div>
             </div>
@@ -80,14 +81,26 @@
 
             <div class="sim-stage">
                 <div class="nan-figure" id="nan-figure">
-                    <div class="head"></div>
+                    <div class="head">
+                        <div class="glasses">
+                            <div class="lens left"></div>
+                            <div class="lens right"></div>
+                            <div class="bridge"></div>
+                        </div>
+                    </div>
                     <div class="torso">
+                        <div class="cardigan-pattern"></div>
                         <div class="tit left-tit" id="tit-l"></div>
                         <div class="tit right-tit" id="tit-r"></div>
                     </div>
                     <div class="arm left-arm"></div>
                     <div class="arm right-arm"></div>
-                    <div class="legs"></div>
+                    <div class="handbag"></div>
+                    <div class="walking-stick"></div>
+                    <div class="legs">
+                        <div class="shoe left"></div>
+                        <div class="shoe right"></div>
+                    </div>
                 </div>
             </div>
 
@@ -105,7 +118,8 @@
     <footer>
         <div class="footer-logo">BYNTCO.</div>
         <p>&copy; 2026 BYNTCO Fine Curations & Kinetic Detachments. All sales are final.</p>
-        <p class="disclaimer">No actual nans were harmed. Cardigans strictly monitored for safety.</p>
+        <p class="disclaimer">No actual nans were harmed. Cardigans strictly monitored for safety. Please note: BYNTCO
+            does not currently accept Nectar points or Tesco Clubcard vouchers.</p>
     </footer>
 
     <script src="main.js"></script>
